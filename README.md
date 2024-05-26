@@ -7,10 +7,10 @@ We use `CodeQL 2.15.1` to get data. To view or use `.sarif` files efficiently, y
     <h2 class="title">BibTeX</h2>
     <pre><code>@Article{kerbl3Dgaussians,
       author       = {Wenyuan, Cheng and Zenyang, Li and Peng, Liang},
-      title        = {3D Gaussian Splatting for Real-Time Radiance Field Rendering},
+      title        = {ADS-Code-Test-Results},
       month        = {May},
       year         = {2024},
-      url          = {https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/}
+      url          = {https://github.com/Close-Recover/ADS-Code-Test-Results/tree/main}
 }</code></pre>
   </div>
 </section>
