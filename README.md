@@ -6,7 +6,7 @@ We use `CodeQL 2.15.1` to get data. To view or use `.sarif` files efficiently, y
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{wenyuanCodeqlRes,
-      author       = {Wenyuan, Cheng and Zenyang, Li and Peng, Liang},
+      author       = {Anonymous Author(s)},
       title        = {ADS-Code-Test-Results},
       month        = {May},
       year         = {2024},
