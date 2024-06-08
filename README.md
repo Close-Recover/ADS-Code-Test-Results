@@ -16,7 +16,7 @@ To view or use `.sarif` files efficiently, you may need to execute scripts in th
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{CodeqlRes,
-      author       = {Anonymous Author(s)},
+      author       = {Anonymous},
       title        = {ADS-Code-Test-Results},
       month        = {May},
       year         = {2024},
