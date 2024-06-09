@@ -8,7 +8,7 @@ Things contained in:
   - `codeql-suites`: the query suites for C++, Python and JavaScript language.
   - `scripts`: some programs help to extract data.
 
-We use `CodeQL 2.15.1` to get data. Be sure that you have followed the [instructions](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis) and every projects' documentation if you want to replicate the results.
+We use `CodeQL 2.15.1` to get data. Be sure that you have followed the [instructions](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis) and every project's documentation if you want to replicate the results.
 
 To view or use `.sarif` files efficiently, you may need to execute scripts in this repository or install `SARIF Viewer` on VS Code.
 
