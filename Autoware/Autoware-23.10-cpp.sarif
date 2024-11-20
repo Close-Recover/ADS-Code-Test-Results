@@ -1,0 +1,4024 @@
+{
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "CodeQL",
+        "organization" : "GitHub",
+        "semanticVersion" : "2.15.1",
+        "rules" : [ {
+          "id" : "cpp/untrusted-data-to-external-api-ir",
+          "name" : "cpp/untrusted-data-to-external-api-ir",
+          "shortDescription" : {
+            "text" : "Untrusted data passed to external API"
+          },
+          "fullDescription" : {
+            "text" : "Data provided remotely is used in this external API without sanitization, which could be a security risk."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-20" ],
+            "description" : "Data provided remotely is used in this external API without sanitization, which could be a security risk.",
+            "id" : "cpp/untrusted-data-to-external-api-ir",
+            "kind" : "path-problem",
+            "name" : "Untrusted data passed to external API",
+            "precision" : "low",
+            "problem.severity" : "error",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/late-check-of-function-argument",
+          "name" : "cpp/late-check-of-function-argument",
+          "shortDescription" : {
+            "text" : "Late Check Of Function Argument"
+          },
+          "fullDescription" : {
+            "text" : "--Checking the function argument after calling the function itself. --This situation looks suspicious and requires the attention of the developer. --It may be necessary to add validation before calling the function."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "experimental", "external/cwe/cwe-20" ],
+            "description" : "--Checking the function argument after calling the function itself.\n              --This situation looks suspicious and requires the attention of the developer.\n              --It may be necessary to add validation before calling the function.",
+            "id" : "cpp/late-check-of-function-argument",
+            "kind" : "problem",
+            "name" : "Late Check Of Function Argument",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/command-line-injection",
+          "name" : "cpp/command-line-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled data used in OS command"
+          },
+          "fullDescription" : {
+            "text" : "Using user-supplied data in an OS command, without neutralizing special elements, can make code vulnerable to command injection."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-078", "external/cwe/cwe-088" ],
+            "description" : "Using user-supplied data in an OS command, without\n              neutralizing special elements, can make code vulnerable\n              to command injection.",
+            "id" : "cpp/command-line-injection",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled data used in OS command",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "cpp/wordexp-injection",
+          "name" : "cpp/wordexp-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled data used in `wordexp` command"
+          },
+          "fullDescription" : {
+            "text" : "Using user-supplied data in a `wordexp` command, without disabling command substitution, can make code vulnerable to command injection."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "experimental", "external/cwe/cwe-078" ],
+            "description" : "Using user-supplied data in a `wordexp` command, without\n              disabling command substitution, can make code vulnerable\n              to command injection.",
+            "id" : "cpp/wordexp-injection",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled data used in `wordexp` command",
+            "precision" : "high",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "cpp/cgi-xss",
+          "name" : "cpp/cgi-xss",
+          "shortDescription" : {
+            "text" : "CGI script vulnerable to cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Writing user input directly to a web page allows for a cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079" ],
+            "description" : "Writing user input directly to a web page\n              allows for a cross-site scripting vulnerability.",
+            "id" : "cpp/cgi-xss",
+            "kind" : "path-problem",
+            "name" : "CGI script vulnerable to cross-site scripting",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.1"
+          }
+        }, {
+          "id" : "cpp/sql-injection",
+          "name" : "cpp/sql-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled data in SQL query"
+          },
+          "fullDescription" : {
+            "text" : "Including user-supplied data in a SQL query without neutralizing special elements can make code vulnerable to SQL Injection."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-089" ],
+            "description" : "Including user-supplied data in a SQL query without\n              neutralizing special elements can make code vulnerable\n              to SQL Injection.",
+            "id" : "cpp/sql-injection",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled data in SQL query",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "cpp/overflow-buffer",
+          "name" : "cpp/overflow-buffer",
+          "shortDescription" : {
+            "text" : "Call to memory access function may overflow buffer"
+          },
+          "fullDescription" : {
+            "text" : "Incorrect use of a function that accesses a memory buffer may read or write data past the end of that buffer."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-119", "external/cwe/cwe-121", "external/cwe/cwe-122", "external/cwe/cwe-126" ],
+            "description" : "Incorrect use of a function that accesses a memory\n              buffer may read or write data past the end of that\n              buffer.",
+            "id" : "cpp/overflow-buffer",
+            "kind" : "problem",
+            "name" : "Call to memory access function may overflow buffer",
+            "problem.severity" : "recommendation",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/overrun-write",
+          "name" : "cpp/overrun-write",
+          "shortDescription" : {
+            "text" : "Overrunning write"
+          },
+          "fullDescription" : {
+            "text" : "Exceeding the size of a static array during write or access operations may result in a buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-119", "external/cwe/cwe-131" ],
+            "description" : "Exceeding the size of a static array during write or access operations\n              may result in a buffer overflow.",
+            "id" : "cpp/overrun-write",
+            "kind" : "path-problem",
+            "name" : "Overrunning write",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/badly-bounded-write",
+          "name" : "cpp/badly-bounded-write",
+          "shortDescription" : {
+            "text" : "Badly bounded write"
+          },
+          "fullDescription" : {
+            "text" : "Buffer write operations with a length parameter that does not match the size of the destination buffer may overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-120", "external/cwe/cwe-787", "external/cwe/cwe-805" ],
+            "description" : "Buffer write operations with a length parameter that\n              does not match the size of the destination buffer may\n              overflow.",
+            "id" : "cpp/badly-bounded-write",
+            "kind" : "problem",
+            "name" : "Badly bounded write",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/overrunning-write",
+          "name" : "cpp/overrunning-write",
+          "shortDescription" : {
+            "text" : "Potentially overrunning write"
+          },
+          "fullDescription" : {
+            "text" : "Buffer write operations that do not control the length of data written may overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-120", "external/cwe/cwe-787", "external/cwe/cwe-805" ],
+            "description" : "Buffer write operations that do not control the length\n              of data written may overflow.",
+            "id" : "cpp/overrunning-write",
+            "kind" : "problem",
+            "name" : "Potentially overrunning write",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/overrunning-write-with-float",
+          "name" : "cpp/overrunning-write-with-float",
+          "shortDescription" : {
+            "text" : "Potentially overrunning write with float to string conversion"
+          },
+          "fullDescription" : {
+            "text" : "Buffer write operations that do not control the length of data written may overflow when floating point inputs take extreme values."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-120", "external/cwe/cwe-787", "external/cwe/cwe-805" ],
+            "description" : "Buffer write operations that do not control the length\n              of data written may overflow when floating point inputs\n              take extreme values.",
+            "id" : "cpp/overrunning-write-with-float",
+            "kind" : "problem",
+            "name" : "Potentially overrunning write with float to string conversion",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/unbounded-write",
+          "name" : "cpp/unbounded-write",
+          "shortDescription" : {
+            "text" : "Unbounded write"
+          },
+          "fullDescription" : {
+            "text" : "Buffer write operations that do not control the length of data written may overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-120", "external/cwe/cwe-787", "external/cwe/cwe-805" ],
+            "description" : "Buffer write operations that do not control the length\n              of data written may overflow.",
+            "id" : "cpp/unbounded-write",
+            "kind" : "path-problem",
+            "name" : "Unbounded write",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/very-likely-overrunning-write",
+          "name" : "cpp/very-likely-overrunning-write",
+          "shortDescription" : {
+            "text" : "Likely overrunning write"
+          },
+          "fullDescription" : {
+            "text" : "Buffer write operations that do not control the length of data written may overflow"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-120", "external/cwe/cwe-787", "external/cwe/cwe-805" ],
+            "description" : "Buffer write operations that do not control the length\n              of data written may overflow",
+            "id" : "cpp/very-likely-overrunning-write",
+            "kind" : "problem",
+            "name" : "Likely overrunning write",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/dangerous-use-convert-function",
+          "name" : "cpp/dangerous-use-convert-function",
+          "shortDescription" : {
+            "text" : "Dangerous use convert function."
+          },
+          "fullDescription" : {
+            "text" : "Using convert function with an invalid length argument can result in an out-of-bounds access error or unexpected result."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "experimental", "external/cwe/cwe-125" ],
+            "description" : "Using convert function with an invalid length argument can result in an out-of-bounds access error or unexpected result.",
+            "id" : "cpp/dangerous-use-convert-function",
+            "kind" : "problem",
+            "name" : "Dangerous use convert function.",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/unclear-array-index-validation",
+          "name" : "cpp/unclear-array-index-validation",
+          "shortDescription" : {
+            "text" : "Unclear validation of array index"
+          },
+          "fullDescription" : {
+            "text" : "Accessing an array without first checking that the index is within the bounds of the array can cause undefined behavior and can also be a security risk."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-129" ],
+            "description" : "Accessing an array without first checking\n              that the index is within the bounds of the array can\n              cause undefined behavior and can also be a security risk.",
+            "id" : "cpp/unclear-array-index-validation",
+            "kind" : "path-problem",
+            "name" : "Unclear validation of array index",
+            "precision" : "low",
+            "problem.severity" : "warning",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "cpp/tainted-format-string",
+          "name" : "cpp/tainted-format-string",
+          "shortDescription" : {
+            "text" : "Uncontrolled format string"
+          },
+          "fullDescription" : {
+            "text" : "Using externally-controlled format strings in printf-style functions can lead to buffer overflows or data representation problems."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-134" ],
+            "description" : "Using externally-controlled format strings in\n              printf-style functions can lead to buffer overflows\n              or data representation problems.",
+            "id" : "cpp/tainted-format-string",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled format string",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/tainted-arithmetic",
+          "name" : "cpp/tainted-arithmetic",
+          "shortDescription" : {
+            "text" : "User-controlled data in arithmetic expression"
+          },
+          "fullDescription" : {
+            "text" : "Arithmetic operations on user-controlled data that is not validated can cause overflows."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-190", "external/cwe/cwe-191" ],
+            "description" : "Arithmetic operations on user-controlled data that is\n              not validated can cause overflows.",
+            "id" : "cpp/tainted-arithmetic",
+            "kind" : "path-problem",
+            "name" : "User-controlled data in arithmetic expression",
+            "precision" : "low",
+            "problem.severity" : "warning",
+            "security-severity" : "8.6"
+          }
+        }, {
+          "id" : "cpp/uncontrolled-arithmetic",
+          "name" : "cpp/uncontrolled-arithmetic",
+          "shortDescription" : {
+            "text" : "Uncontrolled data in arithmetic expression"
+          },
+          "fullDescription" : {
+            "text" : "Arithmetic operations on uncontrolled data that is not validated can cause overflows."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-190", "external/cwe/cwe-191" ],
+            "description" : "Arithmetic operations on uncontrolled data that is not\n              validated can cause overflows.",
+            "id" : "cpp/uncontrolled-arithmetic",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled data in arithmetic expression",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "8.6"
+          }
+        }, {
+          "id" : "cpp/arithmetic-with-extreme-values",
+          "name" : "cpp/arithmetic-with-extreme-values",
+          "shortDescription" : {
+            "text" : "Use of extreme values in arithmetic expression"
+          },
+          "fullDescription" : {
+            "text" : "If a variable is assigned the maximum or minimum value for that variable's type and is then used in an arithmetic expression, this may result in an overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "reliability", "external/cwe/cwe-190", "external/cwe/cwe-191" ],
+            "description" : "If a variable is assigned the maximum or minimum value\n              for that variable's type and is then used in an\n              arithmetic expression, this may result in an overflow.",
+            "id" : "cpp/arithmetic-with-extreme-values",
+            "kind" : "problem",
+            "name" : "Use of extreme values in arithmetic expression",
+            "precision" : "low",
+            "problem.severity" : "warning",
+            "security-severity" : "8.6"
+          }
+        }, {
+          "id" : "cpp/comparison-with-wider-type",
+          "name" : "cpp/comparison-with-wider-type",
+          "shortDescription" : {
+            "text" : "Comparison of narrow type with wide type in loop condition"
+          },
+          "fullDescription" : {
+            "text" : "Comparisons between types of different widths in a loop condition can cause the loop to behave unexpectedly."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-190", "external/cwe/cwe-197", "external/cwe/cwe-835" ],
+            "description" : "Comparisons between types of different widths in a loop\n              condition can cause the loop to behave unexpectedly.",
+            "id" : "cpp/comparison-with-wider-type",
+            "kind" : "problem",
+            "name" : "Comparison of narrow type with wide type in loop condition",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/uncontrolled-allocation-size",
+          "name" : "cpp/uncontrolled-allocation-size",
+          "shortDescription" : {
+            "text" : "Overflow in uncontrolled allocation size"
+          },
+          "fullDescription" : {
+            "text" : "Allocating memory with a size controlled by an external user can result in integer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-190", "external/cwe/cwe-789" ],
+            "description" : "Allocating memory with a size controlled by an external\n              user can result in integer overflow.",
+            "id" : "cpp/uncontrolled-allocation-size",
+            "kind" : "path-problem",
+            "name" : "Overflow in uncontrolled allocation size",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/multiplication-overflow-in-alloc",
+          "name" : "cpp/multiplication-overflow-in-alloc",
+          "shortDescription" : {
+            "text" : "Multiplication result may overflow and be used in allocation"
+          },
+          "fullDescription" : {
+            "text" : "Using a multiplication result that may overflow in the size of an allocation may lead to buffer overflows when the allocated memory is used."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "correctness", "experimental", "external/cwe/cwe-190", "external/cwe/cwe-128" ],
+            "description" : "Using a multiplication result that may overflow in the size of an allocation may lead to buffer overflows when the allocated memory is used.",
+            "id" : "cpp/multiplication-overflow-in-alloc",
+            "kind" : "path-problem",
+            "name" : "Multiplication result may overflow and be used in allocation",
+            "precision" : "low",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/dangerous-use-of-transformation-after-operation",
+          "name" : "cpp/dangerous-use-of-transformation-after-operation",
+          "shortDescription" : {
+            "text" : "Dangerous use of transformation after operation."
+          },
+          "fullDescription" : {
+            "text" : "By using the transformation after the operation, you are doing a pointless and dangerous action."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "experimental", "external/cwe/cwe-190" ],
+            "description" : "By using the transformation after the operation, you are doing a pointless and dangerous action.",
+            "id" : "cpp/dangerous-use-of-transformation-after-operation",
+            "kind" : "problem",
+            "name" : "Dangerous use of transformation after operation.",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/if-statement-addition-overflow",
+          "name" : "cpp/if-statement-addition-overflow",
+          "shortDescription" : {
+            "text" : "Integer addition may overflow inside if statement"
+          },
+          "fullDescription" : {
+            "text" : "Writing 'if (a+b>c) a=c-b' incorrectly implements 'a = min(a,c-b)' if 'a+b' overflows. This integer overflow is the root cause of the buffer overflow in the SHA-3 reference implementation (CVE-2022-37454)."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "description" : "Writing 'if (a+b>c) a=c-b' incorrectly implements\n              'a = min(a,c-b)' if 'a+b' overflows. This integer\n              overflow is the root cause of the buffer overflow\n              in the SHA-3 reference implementation (CVE-2022-37454).",
+            "id" : "cpp/if-statement-addition-overflow",
+            "kind" : "problem",
+            "name" : "Integer addition may overflow inside if statement",
+            "problem.severity" : "warning",
+            "tags:" : "experimental\n        correctness\n        security\n        external/cwe/cwe-190"
+          }
+        }, {
+          "id" : "cpp/unsigned-difference-expression-compared-zero",
+          "name" : "cpp/unsigned-difference-expression-compared-zero",
+          "shortDescription" : {
+            "text" : "Unsigned difference expression compared to zero"
+          },
+          "fullDescription" : {
+            "text" : "A subtraction with an unsigned result can never be negative. Using such an expression in a relational comparison with `0` is likely to be wrong."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "correctness", "external/cwe/cwe-191" ],
+            "description" : "A subtraction with an unsigned result can never be negative. Using such an expression in a relational comparison with `0` is likely to be wrong.",
+            "id" : "cpp/unsigned-difference-expression-compared-zero",
+            "kind" : "problem",
+            "name" : "Unsigned difference expression compared to zero",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "cpp/work-with-file-without-permissions-rights",
+          "name" : "cpp/work-with-file-without-permissions-rights",
+          "shortDescription" : {
+            "text" : "Writing to a file without setting permissions."
+          },
+          "fullDescription" : {
+            "text" : "Lack of restriction on file access rights can be unsafe."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "maintainability", "security", "experimental", "external/cwe/cwe-200", "external/cwe/cwe-264" ],
+            "description" : "Lack of restriction on file access rights can be unsafe.",
+            "id" : "cpp/work-with-file-without-permissions-rights",
+            "kind" : "problem",
+            "name" : "Writing to a file without setting permissions.",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/pam-auth-bypass",
+          "name" : "cpp/pam-auth-bypass",
+          "shortDescription" : {
+            "text" : "PAM Authorization bypass"
+          },
+          "fullDescription" : {
+            "text" : "Only using `pam_authenticate` call to authenticate users can lead to authorization vulnerabilities."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "experimental", "external/cwe/cwe-285" ],
+            "description" : "Only using `pam_authenticate` call to authenticate users can lead to authorization vulnerabilities.",
+            "id" : "cpp/pam-auth-bypass",
+            "kind" : "problem",
+            "name" : "PAM Authorization bypass",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "cpp/user-controlled-bypass",
+          "name" : "cpp/user-controlled-bypass",
+          "shortDescription" : {
+            "text" : "Authentication bypass by spoofing"
+          },
+          "fullDescription" : {
+            "text" : "Authentication by checking that the peer's address matches a known IP or web address is unsafe as it is vulnerable to spoofing attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-290" ],
+            "description" : "Authentication by checking that the peer's address\n              matches a known IP or web address is unsafe as it is\n              vulnerable to spoofing attacks.",
+            "id" : "cpp/user-controlled-bypass",
+            "kind" : "path-problem",
+            "name" : "Authentication bypass by spoofing",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/certificate-result-conflation",
+          "name" : "cpp/certificate-result-conflation",
+          "shortDescription" : {
+            "text" : "Certificate result conflation"
+          },
+          "fullDescription" : {
+            "text" : "Only accept SSL certificates that pass certificate verification."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-295" ],
+            "description" : "Only accept SSL certificates that pass certificate verification.",
+            "id" : "cpp/certificate-result-conflation",
+            "kind" : "problem",
+            "name" : "Certificate result conflation",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/certificate-not-checked",
+          "name" : "cpp/certificate-not-checked",
+          "shortDescription" : {
+            "text" : "Certificate not checked"
+          },
+          "fullDescription" : {
+            "text" : "Always check the result of certificate verification after fetching an SSL certificate."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-295" ],
+            "description" : "Always check the result of certificate verification after fetching an SSL certificate.",
+            "id" : "cpp/certificate-not-checked",
+            "kind" : "problem",
+            "name" : "Certificate not checked",
+            "precision" : "medium",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/cleartext-storage-buffer",
+          "name" : "cpp/cleartext-storage-buffer",
+          "shortDescription" : {
+            "text" : "Cleartext storage of sensitive information in buffer"
+          },
+          "fullDescription" : {
+            "text" : "Storing sensitive information in cleartext can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-312" ],
+            "description" : "Storing sensitive information in cleartext can expose it\n              to an attacker.",
+            "id" : "cpp/cleartext-storage-buffer",
+            "kind" : "path-problem",
+            "name" : "Cleartext storage of sensitive information in buffer",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/cleartext-storage-file",
+          "name" : "cpp/cleartext-storage-file",
+          "shortDescription" : {
+            "text" : "Cleartext storage of sensitive information in file"
+          },
+          "fullDescription" : {
+            "text" : "Storing sensitive information in cleartext can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-260", "external/cwe/cwe-313" ],
+            "description" : "Storing sensitive information in cleartext can expose it\n              to an attacker.",
+            "id" : "cpp/cleartext-storage-file",
+            "kind" : "path-problem",
+            "name" : "Cleartext storage of sensitive information in file",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/cleartext-transmission",
+          "name" : "cpp/cleartext-transmission",
+          "shortDescription" : {
+            "text" : "Cleartext transmission of sensitive information"
+          },
+          "fullDescription" : {
+            "text" : "Transmitting sensitive information across a network in cleartext can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-319", "external/cwe/cwe-359" ],
+            "description" : "Transmitting sensitive information across a network in\n              cleartext can expose it to an attacker.",
+            "id" : "cpp/cleartext-transmission",
+            "kind" : "path-problem",
+            "name" : "Cleartext transmission of sensitive information",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/cleartext-storage-database",
+          "name" : "cpp/cleartext-storage-database",
+          "shortDescription" : {
+            "text" : "Cleartext storage of sensitive information in an SQLite database"
+          },
+          "fullDescription" : {
+            "text" : "Storing sensitive information in a non-encrypted database can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-313" ],
+            "description" : "Storing sensitive information in a non-encrypted\n              database can expose it to an attacker.",
+            "id" : "cpp/cleartext-storage-database",
+            "kind" : "path-problem",
+            "name" : "Cleartext storage of sensitive information in an SQLite database",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/non-https-url",
+          "name" : "cpp/non-https-url",
+          "shortDescription" : {
+            "text" : "Failure to use HTTPS URLs"
+          },
+          "fullDescription" : {
+            "text" : "Non-HTTPS connections can be intercepted by third parties."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-319", "external/cwe/cwe-345" ],
+            "description" : "Non-HTTPS connections can be intercepted by third parties.",
+            "id" : "cpp/non-https-url",
+            "kind" : "path-problem",
+            "name" : "Failure to use HTTPS URLs",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/insufficient-key-size",
+          "name" : "cpp/insufficient-key-size",
+          "shortDescription" : {
+            "text" : "Use of a cryptographic algorithm with insufficient key size"
+          },
+          "fullDescription" : {
+            "text" : "Using cryptographic algorithms with too small a key size can allow an attacker to compromise security."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-326" ],
+            "description" : "Using cryptographic algorithms with too small a key size can\n              allow an attacker to compromise security.",
+            "id" : "cpp/insufficient-key-size",
+            "kind" : "path-problem",
+            "name" : "Use of a cryptographic algorithm with insufficient key size",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/weak-cryptographic-algorithm",
+          "name" : "cpp/weak-cryptographic-algorithm",
+          "shortDescription" : {
+            "text" : "Use of a broken or risky cryptographic algorithm"
+          },
+          "fullDescription" : {
+            "text" : "Using broken or weak cryptographic algorithms can allow an attacker to compromise security."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-327" ],
+            "description" : "Using broken or weak cryptographic algorithms can allow\n              an attacker to compromise security.",
+            "id" : "cpp/weak-cryptographic-algorithm",
+            "kind" : "problem",
+            "name" : "Use of a broken or risky cryptographic algorithm",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/openssl-heartbleed",
+          "name" : "cpp/openssl-heartbleed",
+          "shortDescription" : {
+            "text" : "Use of a version of OpenSSL with Heartbleed"
+          },
+          "fullDescription" : {
+            "text" : "Using an old version of OpenSSL can allow remote attackers to retrieve portions of memory."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-327", "external/cwe/cwe-788" ],
+            "description" : "Using an old version of OpenSSL can allow remote\n              attackers to retrieve portions of memory.",
+            "id" : "cpp/openssl-heartbleed",
+            "kind" : "problem",
+            "name" : "Use of a version of OpenSSL with Heartbleed",
+            "precision" : "very-high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/toctou-race-condition",
+          "name" : "cpp/toctou-race-condition",
+          "shortDescription" : {
+            "text" : "Time-of-check time-of-use filesystem race condition"
+          },
+          "fullDescription" : {
+            "text" : "Separately checking the state of a file before operating on it may allow an attacker to modify the file between the two operations."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-367" ],
+            "description" : "Separately checking the state of a file before operating\n              on it may allow an attacker to modify the file between\n              the two operations.",
+            "id" : "cpp/toctou-race-condition",
+            "kind" : "problem",
+            "name" : "Time-of-check time-of-use filesystem race condition",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.7"
+          }
+        }, {
+          "id" : "cpp/memory-leak-on-failed-call-to-realloc",
+          "name" : "cpp/memory-leak-on-failed-call-to-realloc",
+          "shortDescription" : {
+            "text" : "Memory leak on failed call to realloc"
+          },
+          "fullDescription" : {
+            "text" : "The expression mem = realloc (mem, size) is potentially dangerous, if the call fails, we will lose the pointer to the memory block. We recommend storing the result in a temporary variable and eliminating memory leak."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "experimental", "external/cwe/cwe-401" ],
+            "description" : "The expression mem = realloc (mem, size) is potentially dangerous, if the call fails, we will lose the pointer to the memory block.\n              We recommend storing the result in a temporary variable and eliminating memory leak.",
+            "id" : "cpp/memory-leak-on-failed-call-to-realloc",
+            "kind" : "problem",
+            "name" : "Memory leak on failed call to realloc",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/external-entity-expansion",
+          "name" : "cpp/external-entity-expansion",
+          "shortDescription" : {
+            "text" : "XML external entity expansion"
+          },
+          "fullDescription" : {
+            "text" : "Parsing user-controlled XML documents and allowing expansion of external entity references may lead to disclosure of confidential data or denial of service."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-611" ],
+            "description" : "Parsing user-controlled XML documents and allowing expansion of\n              external entity references may lead to disclosure of\n              confidential data or denial of service.",
+            "id" : "cpp/external-entity-expansion",
+            "kind" : "path-problem",
+            "name" : "XML external entity expansion",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "9.1"
+          }
+        }, {
+          "id" : "cpp/dangerous-function-overflow",
+          "name" : "cpp/dangerous-function-overflow",
+          "shortDescription" : {
+            "text" : "Use of dangerous function"
+          },
+          "fullDescription" : {
+            "text" : "Use of a standard library function that does not guard against buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-242", "external/cwe/cwe-676" ],
+            "description" : "Use of a standard library function that does not guard against buffer overflow.",
+            "id" : "cpp/dangerous-function-overflow",
+            "kind" : "problem",
+            "name" : "Use of dangerous function",
+            "precision" : "very-high",
+            "problem.severity" : "error",
+            "security-severity" : "10.0"
+          }
+        }, {
+          "id" : "cpp/dangerous-cin",
+          "name" : "cpp/dangerous-cin",
+          "shortDescription" : {
+            "text" : "Dangerous use of 'cin'"
+          },
+          "fullDescription" : {
+            "text" : "Using `cin` without specifying the length of the input may be dangerous."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-676" ],
+            "description" : "Using `cin` without specifying the length of the input\n              may be dangerous.",
+            "id" : "cpp/dangerous-cin",
+            "kind" : "problem",
+            "name" : "Dangerous use of 'cin'",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "10.0"
+          }
+        }, {
+          "id" : "cpp/incorrect-string-type-conversion",
+          "name" : "cpp/incorrect-string-type-conversion",
+          "shortDescription" : {
+            "text" : "Cast from char* to wchar_t*"
+          },
+          "fullDescription" : {
+            "text" : "Casting a byte string to a wide-character string is likely to yield a string that is incorrectly terminated or aligned. This can lead to undefined behavior, including buffer overruns."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-704" ],
+            "description" : "Casting a byte string to a wide-character string is likely\n              to yield a string that is incorrectly terminated or aligned.\n              This can lead to undefined behavior, including buffer overruns.",
+            "id" : "cpp/incorrect-string-type-conversion",
+            "kind" : "problem",
+            "name" : "Cast from char* to wchar_t*",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "cpp/world-writable-file-creation",
+          "name" : "cpp/world-writable-file-creation",
+          "shortDescription" : {
+            "text" : "File created without restricting permissions"
+          },
+          "fullDescription" : {
+            "text" : "Creating a file that is world-writable can allow an attacker to write to the file."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-732" ],
+            "description" : "Creating a file that is world-writable can allow an attacker to write to the file.",
+            "id" : "cpp/world-writable-file-creation",
+            "kind" : "problem",
+            "name" : "File created without restricting permissions",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/open-call-with-mode-argument",
+          "name" : "cpp/open-call-with-mode-argument",
+          "shortDescription" : {
+            "text" : "File opened with O_CREAT flag but without mode argument"
+          },
+          "fullDescription" : {
+            "text" : "Opening a file with the O_CREAT flag but without mode argument reads arbitrary bytes from the stack."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-732" ],
+            "description" : "Opening a file with the O_CREAT flag but without mode argument reads arbitrary bytes from the stack.",
+            "id" : "cpp/open-call-with-mode-argument",
+            "kind" : "problem",
+            "name" : "File opened with O_CREAT flag but without mode argument",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/unsafe-dacl-security-descriptor",
+          "name" : "cpp/unsafe-dacl-security-descriptor",
+          "shortDescription" : {
+            "text" : "Setting a DACL to NULL in a SECURITY_DESCRIPTOR"
+          },
+          "fullDescription" : {
+            "text" : "Setting a DACL to NULL in a SECURITY_DESCRIPTOR will result in an unprotected object. If the DACL that belongs to the security descriptor of an object is set to NULL, a null DACL is created. A null DACL grants full access to any user who requests it; normal security checking is not performed with respect to the object."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-732" ],
+            "description" : "Setting a DACL to NULL in a SECURITY_DESCRIPTOR will result in an unprotected object.\n              If the DACL that belongs to the security descriptor of an object is set to NULL, a null DACL is created.\n              A null DACL grants full access to any user who requests it;\n              normal security checking is not performed with respect to the object.",
+            "id" : "cpp/unsafe-dacl-security-descriptor",
+            "kind" : "problem",
+            "name" : "Setting a DACL to NULL in a SECURITY_DESCRIPTOR",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/access-memory-location-after-end-buffer-strlen",
+          "name" : "cpp/access-memory-location-after-end-buffer-strlen",
+          "shortDescription" : {
+            "text" : "Access Of Memory Location After End Of Buffer"
+          },
+          "fullDescription" : {
+            "text" : "The expression `buffer [strlen (buffer)] = 0` is potentially dangerous, if the variable `buffer` does not have a terminal zero, then access beyond the bounds of the allocated memory is possible, which will lead to undefined behavior. If terminal zero is present, then the specified expression is meaningless."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "experimental", "external/cwe/cwe-788" ],
+            "description" : "The expression `buffer [strlen (buffer)] = 0` is potentially dangerous, if the variable `buffer` does not have a terminal zero, then access beyond the bounds of the allocated memory is possible, which will lead to undefined behavior.\n              If terminal zero is present, then the specified expression is meaningless.",
+            "id" : "cpp/access-memory-location-after-end-buffer-strlen",
+            "kind" : "problem",
+            "name" : "Access Of Memory Location After End Of Buffer",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        } ]
+      },
+      "extensions" : [ {
+        "name" : "codeql/cpp-queries",
+        "semanticVersion" : "0.9.4-dev",
+        "locations" : [ {
+          "uri" : "file:///root/codeql-main/cpp/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///root/codeql-main/cpp/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      } ]
+    },
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 0
+      }
+    }, {
+      "location" : {
+        "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 1
+      }
+    }, {
+      "location" : {
+        "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+        "index" : 2
+      }
+    }, {
+      "location" : {
+        "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/laserscan_based_occupancy_grid_map/occupancy_grid_map.cpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 3
+      }
+    }, {
+      "location" : {
+        "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/pointcloud_based_occupancy_grid_map/occupancy_grid_map_base.cpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 4
+      }
+    }, {
+      "location" : {
+        "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 5
+      }
+    }, {
+      "location" : {
+        "uri" : "src/universe/external/eagleye/eagleye_core/coordinate/src/geoid_per_minute.cpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 6
+      }
+    }, {
+      "location" : {
+        "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/common.h",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 7
+      }
+    }, {
+      "location" : {
+        "uri" : "src/universe/autoware.universe/system/system_monitor/reader/traffic_reader/traffic_reader_service.cpp",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 8
+      }
+    } ],
+    "results" : [ {
+      "ruleId" : "cpp/tainted-arithmetic",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/tainted-arithmetic",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "[buffer read by recv](1) flows to an operand of an arithmetic expression, potentially causing an overflow."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 7235,
+            "startColumn" : 13,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c21d3f4d477953b2:1",
+        "primaryLocationStartColumnFingerprint" : "8"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7235,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 67
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 22,
+                  "endColumn" : 31
+                }
+              },
+              "message" : {
+                "text" : "longitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7235,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "latitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7235,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 24,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "*& ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 64,
+                  "endColumn" : 69
+                }
+              },
+              "message" : {
+                "text" : "*__src"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 34,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "__builtin___memcpy_chk output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 14,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "memcpy output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7235,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 106,
+            "startColumn" : 35,
+            "endColumn" : 43
+          }
+        },
+        "message" : {
+          "text" : "buffer read by recv"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/tainted-arithmetic",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/tainted-arithmetic",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "[buffer read by recv](1) flows to an operand of an arithmetic expression, potentially causing an overflow."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 7236,
+            "startColumn" : 13,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "fcf997f57949bd1a:1",
+        "primaryLocationStartColumnFingerprint" : "8"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7236,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 67
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 22,
+                  "endColumn" : 31
+                }
+              },
+              "message" : {
+                "text" : "longitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7236,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "latitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7236,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 24,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "*& ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 64,
+                  "endColumn" : 69
+                }
+              },
+              "message" : {
+                "text" : "*__src"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 34,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "__builtin___memcpy_chk output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 14,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "memcpy output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 212,
+                  "startColumn" : 16,
+                  "endColumn" : 19
+                }
+              },
+              "message" : {
+                "text" : "*llh"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7225,
+                  "startColumn" : 20,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "*llh_pos"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/include/hgeoid.hpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7236,
+                  "startColumn" : 13,
+                  "endColumn" : 23
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 106,
+            "startColumn" : 35,
+            "endColumn" : 43
+          }
+        },
+        "message" : {
+          "text" : "buffer read by recv"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/tainted-arithmetic",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/tainted-arithmetic",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "[buffer read by recv](1) flows to an operand of an arithmetic expression, potentially causing an overflow."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 136,
+            "startColumn" : 24,
+            "endColumn" : 28
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "2b244e4e2dce8391:1",
+        "primaryLocationStartColumnFingerprint" : "17"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 24,
+                  "endColumn" : 28
+                }
+              },
+              "message" : {
+                "text" : "call to atof"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 29,
+                  "endColumn" : 37
+                }
+              },
+              "message" : {
+                "text" : "*data_buf"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 24,
+                  "endColumn" : 28
+                }
+              },
+              "message" : {
+                "text" : "call to atof"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 24,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "*& ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 64,
+                  "endColumn" : 69
+                }
+              },
+              "message" : {
+                "text" : "*__src"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 34,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "__builtin___memcpy_chk output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 14,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "memcpy output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 24,
+                  "endColumn" : 28
+                }
+              },
+              "message" : {
+                "text" : "call to atof"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 140,
+                  "startColumn" : 24,
+                  "endColumn" : 46
+                }
+              },
+              "message" : {
+                "text" : "*& ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 64,
+                  "endColumn" : 69
+                }
+              },
+              "message" : {
+                "text" : "*__src"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 34,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "__builtin___memcpy_chk output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 140,
+                  "startColumn" : 14,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "memcpy output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 24,
+                  "endColumn" : 28
+                }
+              },
+              "message" : {
+                "text" : "call to atof"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 106,
+            "startColumn" : 35,
+            "endColumn" : 43
+          }
+        },
+        "message" : {
+          "text" : "buffer read by recv"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/tainted-arithmetic",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/tainted-arithmetic",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "[buffer read by recv](1) flows to an operand of an arithmetic expression, potentially causing an overflow."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 213,
+            "startColumn" : 53,
+            "endColumn" : 59
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "246b506602398710:1",
+        "primaryLocationStartColumnFingerprint" : "44"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 213,
+                  "startColumn" : 53,
+                  "endColumn" : 59
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 67
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [longitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 210,
+                  "startColumn" : 22,
+                  "endColumn" : 31
+                }
+              },
+              "message" : {
+                "text" : "longitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 213,
+                  "startColumn" : 53,
+                  "endColumn" : 59
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 178,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 184,
+                  "startColumn" : 37,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [latitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 209,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "latitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 213,
+                  "startColumn" : 53,
+                  "endColumn" : 59
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      }, {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 106,
+                  "startColumn" : 35,
+                  "endColumn" : 43
+                }
+              },
+              "message" : {
+                "text" : "recv output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 24,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "*& ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 26,
+                  "startColumn" : 64,
+                  "endColumn" : 69
+                }
+              },
+              "message" : {
+                "text" : "*__src"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "file:/usr/include/x86_64-linux-gnu/bits/string_fortified.h",
+                  "index" : 2
+                },
+                "region" : {
+                  "startLine" : 29,
+                  "startColumn" : 34,
+                  "endColumn" : 40
+                }
+              },
+              "message" : {
+                "text" : "__builtin___memcpy_chk output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 135,
+                  "startColumn" : 14,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "memcpy output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 65
+                }
+              },
+              "message" : {
+                "text" : "... = ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 190,
+                  "startColumn" : 36,
+                  "endColumn" : 39
+                }
+              },
+              "message" : {
+                "text" : "*fix [post update] [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 18,
+                  "endColumn" : 21
+                }
+              },
+              "message" : {
+                "text" : "*fix [altitude]"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 211,
+                  "startColumn" : 22,
+                  "endColumn" : 30
+                }
+              },
+              "message" : {
+                "text" : "altitude"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 1
+                },
+                "region" : {
+                  "startLine" : 213,
+                  "startColumn" : 53,
+                  "endColumn" : 59
+                }
+              },
+              "message" : {
+                "text" : "access to array"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/rtklib_ros_bridge/rtklib_bridge/src/rtklib_bridge.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 106,
+            "startColumn" : 35,
+            "endColumn" : 43
+          }
+        },
+        "message" : {
+          "text" : "buffer read by recv"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/multiplication-overflow-in-alloc",
+      "ruleIndex" : 21,
+      "rule" : {
+        "id" : "cpp/multiplication-overflow-in-alloc",
+        "index" : 21
+      },
+      "message" : {
+        "text" : "Potentially overflowing value from [multiplication](1) is used in the size of this allocation."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/laserscan_based_occupancy_grid_map/occupancy_grid_map.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 111,
+            "startColumn" : 31,
+            "endColumn" : 75
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a06d4842a6289166:1",
+        "primaryLocationStartColumnFingerprint" : "28"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/laserscan_based_occupancy_grid_map/occupancy_grid_map.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 111,
+            "startColumn" : 31,
+            "endColumn" : 75
+          }
+        },
+        "message" : {
+          "text" : "multiplication"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/multiplication-overflow-in-alloc",
+      "ruleIndex" : 21,
+      "rule" : {
+        "id" : "cpp/multiplication-overflow-in-alloc",
+        "index" : 21
+      },
+      "message" : {
+        "text" : "Potentially overflowing value from [multiplication](1) is used in the size of this allocation."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/pointcloud_based_occupancy_grid_map/occupancy_grid_map_base.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 4
+          },
+          "region" : {
+            "startLine" : 124,
+            "startColumn" : 31,
+            "endColumn" : 75
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a06d4842a6289166:1",
+        "primaryLocationStartColumnFingerprint" : "28"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/autoware.universe/perception/probabilistic_occupancy_grid_map/src/pointcloud_based_occupancy_grid_map/occupancy_grid_map_base.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 4
+          },
+          "region" : {
+            "startLine" : 124,
+            "startColumn" : 31,
+            "endColumn" : 75
+          }
+        },
+        "message" : {
+          "text" : "multiplication"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/multiplication-overflow-in-alloc",
+      "ruleIndex" : 21,
+      "rule" : {
+        "id" : "cpp/multiplication-overflow-in-alloc",
+        "index" : 21
+      },
+      "message" : {
+        "text" : "Potentially overflowing value from [multiplication](1) is used in the size of this allocation."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 5
+          },
+          "region" : {
+            "startLine" : 202,
+            "startColumn" : 23,
+            "endColumn" : 27
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c1458eea060f6c38:1",
+        "primaryLocationStartColumnFingerprint" : "14"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 5
+                },
+                "region" : {
+                  "startLine" : 138,
+                  "startColumn" : 16,
+                  "endColumn" : 67
+                }
+              },
+              "message" : {
+                "text" : "... * ..."
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 5
+                },
+                "region" : {
+                  "startLine" : 136,
+                  "startColumn" : 12,
+                  "endColumn" : 13
+                }
+              },
+              "message" : {
+                "text" : "*nbBytes"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 5
+                },
+                "region" : {
+                  "startLine" : 74,
+                  "startColumn" : 38,
+                  "endColumn" : 45
+                }
+              },
+              "message" : {
+                "text" : "call to nbBytes"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 5
+                },
+                "region" : {
+                  "startLine" : 200,
+                  "startColumn" : 40,
+                  "endColumn" : 44
+                }
+              },
+              "message" : {
+                "text" : "size"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 5
+                },
+                "region" : {
+                  "startLine" : 202,
+                  "startColumn" : 23,
+                  "endColumn" : 27
+                }
+              },
+              "message" : {
+                "text" : "size"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/buffers.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 5
+          },
+          "region" : {
+            "startLine" : 138,
+            "startColumn" : 16,
+            "endColumn" : 67
+          }
+        },
+        "message" : {
+          "text" : "multiplication"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/multiplication-overflow-in-alloc",
+      "ruleIndex" : 21,
+      "rule" : {
+        "id" : "cpp/multiplication-overflow-in-alloc",
+        "index" : 21
+      },
+      "message" : {
+        "text" : "Potentially overflowing value from [multiplication](1) is used in the size of this allocation."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/eagleye/eagleye_core/coordinate/src/geoid_per_minute.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 6
+          },
+          "region" : {
+            "startLine" : 60,
+            "startColumn" : 31,
+            "endColumn" : 60
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "968c97f1d4d31bed:1",
+        "primaryLocationStartColumnFingerprint" : "26"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/external/eagleye/eagleye_core/coordinate/src/geoid_per_minute.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 6
+          },
+          "region" : {
+            "startLine" : 60,
+            "startColumn" : 31,
+            "endColumn" : 60
+          }
+        },
+        "message" : {
+          "text" : "multiplication"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/world-writable-file-creation",
+      "ruleIndex" : 44,
+      "rule" : {
+        "id" : "cpp/world-writable-file-creation",
+        "index" : 44
+      },
+      "message" : {
+        "text" : "A file may be created here with mode 0666, which would make it world-writable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "build/trtexec_vendor/_deps/tensorrt-src/samples/common/common.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 7
+          },
+          "region" : {
+            "startLine" : 1061,
+            "startColumn" : 14,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a584d3ff5e88a263:1",
+        "primaryLocationStartColumnFingerprint" : "5"
+      }
+    }, {
+      "ruleId" : "cpp/world-writable-file-creation",
+      "ruleIndex" : 44,
+      "rule" : {
+        "id" : "cpp/world-writable-file-creation",
+        "index" : 44
+      },
+      "message" : {
+        "text" : "This sets a file's permissions to 0777, which would make it world-writable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/universe/autoware.universe/system/system_monitor/reader/traffic_reader/traffic_reader_service.cpp",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 56,
+            "startColumn" : 7,
+            "endColumn" : 12
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "827018063f2cad8c:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    } ],
+    "columnKind" : "utf16CodeUnits",
+    "properties" : {
+      "semmle.formatSpecifier" : "sarif-latest"
+    }
+  } ]
+}
